@@ -1,4 +1,4 @@
-import simpleStats
+from . import simpleStats
 import scipy.stats as stats
 
 def standardErrorForT(x):
