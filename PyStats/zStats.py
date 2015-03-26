@@ -12,3 +12,7 @@ def marginOfError(confidenceIntPercent, std, n):
 def confidenceInterval(mean, confidenceIntPercent, std, n):
 	ME = marginOfError(confidenceIntPercent, std, n)
 	return (mean-ME,mean+ME)
+
+def sampleSizeN(confidenceIntPercent,std,ME):
+	percent = ((1-confidenceIntPercent)/2.0)+confidenceIntPercent
+	return (((stats.norm.ppf(percent)*std)/ME)**2)
