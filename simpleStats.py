@@ -51,14 +51,32 @@ def fac(n):
             n = n-1
         return value
 
+#Function: nCr(n,k)
+#Arguements: n - Total number of items(int)
+#            k - Number of items being chosen(int)
+#Description: Returns n choose k
 def nCr(n,k):
     top = fac(n)
     bottom = fac(n-k)*fac(k)
     return top/bottom
 
+#Function: binomialProb(numT,numR,probOccur)
+#Arguements: numT - Number of Trials
+#            numR - Number of Successful Trials
+#            probOccur - Probability of Success
+#Description: Binomial Probability for numR successes
+#             out of numT trials when the probability
+#             of success is probOccur.
 def binomialProb(numT,numR,probOccur):
     return nCr(numT,numR)*(probOccur**numR)*((1-probOccur)**(numT-numR))
 
+#Function: binomialProbSummation(numT,numRLower,numRUpper,probOccur)
+#Arguements: numT - Number of Trials
+#            numRLower - Lowest Number of Successful Trials
+#            numRUpper - Largest Number of Successful Trials
+#            probOccur - Probability of Success
+#Description: Summation of the binomial probabilities between
+#             numRLower and numRUpper
 def binomialProbSummation(numT,numRLower,numRUpper,probOccur):
     n = numRLower
     summation = 0.0
@@ -66,3 +84,4 @@ def binomialProbSummation(numT,numRLower,numRUpper,probOccur):
         summation += binomialProb(numT,n,probOccur)
         n = n+1
     return summation
+
