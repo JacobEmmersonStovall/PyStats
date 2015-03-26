@@ -1,4 +1,5 @@
 import simpleStats
+import scipy.stats as stats
 
 def standardErrorForT(x):
     return (simpleStats.std(x)/(len(x)**.5))
